@@ -2,16 +2,22 @@ const buyModel = require("../models/buyrequest.model");
 
 class BuyRequestService {
   static async create(record = []) {
-    let uniqueRecord = record.filter(async (data) => {
+    let uniqueRecord = [];
+
+    for (const data of record) {
       try {
         const hasValue = await buyModel.exists(data);
 
-        return !hasValue;
+        if (hasValue === true) continue;
+        else {
+          uniqueRecord.push(data);
+        }
       } catch (error) {
         console.log(error);
-        return false;
+        continue;
       }
-    });
+    }
+
     uniqueRecord = await Promise.all(uniqueRecord);
     const result = buyModel.insertMany(uniqueRecord);
     // const result =  buy.save();

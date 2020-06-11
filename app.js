@@ -3,7 +3,6 @@ const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const routes = require("./routes/route");
-const swagger = require("./routes/swagger.route");
 const paginate = require("express-paginate");
 mongoose
   .connect(
@@ -38,7 +37,6 @@ app.all(function (req, res, next) {
   next();
 });
 app.use(paginate.middleware(10, 50));
-app.use("/", swagger);
 
 app.use("/api/v1", routes);
 

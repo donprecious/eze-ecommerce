@@ -1,4 +1,4 @@
-const BuyRequestService = require("../services/buyrequest.services");
+const sellrequestServices = require("../services/sellrequest.services");
 const paginate = require("express-paginate");
 const Responses = require("../shared/responses");
 class BuyController {
@@ -8,7 +8,7 @@ class BuyController {
     try {
       const record = req.body;
 
-      const result = await BuyRequestService.create(record);
+      const result = await sellrequestServices.create(record);
 
       res.status(201).json(Responses.successResponse(result));
     } catch (error) {
@@ -25,18 +25,20 @@ class BuyController {
       const max = req.query.max ? parseFloat(req.query.max) : 99999999;
 
       if (term || min || max) {
-        record = await BuyRequestService.filter(term, min, max)
+        record = await sellrequestServices
+          .filter(term, min, max)
           .limit(req.query.limit)
           .skip(req.skip)
           .lean();
-        itemCount = await BuyRequestService.filter(term, min, max).count();
+        itemCount = await sellrequestServices.filter(term, min, max).count();
         console.log("record", record);
       } else {
-        record = await BuyRequestService.getAll()
+        record = await sellrequestServices
+          .getAll()
           .limit(req.query.limit)
           .skip(req.skip)
           .lean();
-        itemCount = await BuyRequestService.buy().count();
+        itemCount = await sellrequestServices.sell().count();
       }
 
       const pageCount = Math.ceil(itemCount / req.query.limit);
