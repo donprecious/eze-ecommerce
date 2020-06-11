@@ -75,23 +75,24 @@ Sample Response
 Post  
 Accept body of array of product to add
 /api/v1/buy
-body  
- -- sample body
-[{
-"product": "Iphone x",
-"storage": "64Gb",
-"price": 103,
-"condition": "a1",
-"status": "unlocked"
-},
-{
-"product": "Iphone c",
-"storage": "64Gb",
-"price": 103,
-"condition": "a1",
-"status": "unlocked"
-}
-]
+body
+
+     -- sample body
+    	 [{
+                "product": "Iphone x",
+                "storage": "64Gb",
+                "price": 103,
+                "condition": "a1",
+                "status": "unlocked"
+    },
+    {
+                "product": "Iphone c",
+                "storage": "64Gb",
+                "price": 103,
+                "condition": "a1",
+                "status": "unlocked"
+    }
+    ]
 
 -- Response
 
@@ -167,23 +168,24 @@ max = maximum price of items to find, default : 999999
 Post  
 Accept body of array of product to add
 /api/v1/buy
-body  
- -- sample body
-[{
-"product": "Iphone x",
-"storage": "64Gb",
-"price": 103,
-"condition": "a1",
-"status": "unlocked"
-},
-{
-"product": "Iphone c",
-"storage": "64Gb",
-"price": 103,
-"condition": "a1",
-"status": "unlocked"
-}
-]
+body
+
+     -- sample body
+    	 [{
+                "product": "Iphone x",
+                "storage": "64Gb",
+                "price": 103,
+                "condition": "a1",
+                "status": "unlocked"
+    },
+    {
+                "product": "Iphone c",
+                "storage": "64Gb",
+                "price": 103,
+                "condition": "a1",
+                "status": "unlocked"
+    }
+    ]
 
 -- Response
 
